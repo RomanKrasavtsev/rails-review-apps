@@ -12,4 +12,4 @@ RUN /bin/bash -l -c "bundle config --global silence_root_warning 1"
 ADD id_rsa /root/.ssh
 RUN chmod 700 /root/.ssh/id_rsa
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-MAINTAINER Roman Krasavtsev “roman@workinstartup.ru"
+MAINTAINER Roman Krasavtsev "roman@workinstartup.ru"
