@@ -1,6 +1,6 @@
 # rails-review-apps
 
-rails app + docker + registrator + consul + nginx = review apps
+rails app + docker + registrator + consul + consul template + nginx = review apps
 
 ## Get started
 - Generate ssh key
