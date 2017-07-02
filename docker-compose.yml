@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  app-server:
+    image: app_server
+    ports:
+      - 80
+    working_dir: /home/app/
+    command: /bin/bash -l -c "git clone ${GIT_URL} . && echo \"gem 'tzinfo-data'\" >> Gemfile && bundle install --without test && bundle exec ${SERVER}"
+    links:
+      - postgresql
+      - redis
+  postgresql:
+    image: postgres:9.4
+  redis:
+    image: redis
