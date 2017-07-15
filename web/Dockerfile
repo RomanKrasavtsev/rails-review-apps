@@ -1,3 +1,2 @@
 FROM nginx
-ADD nginx.conf /etc/nginx/ 
-EXPOSE 80
+ADD nginx.conf /etc/nginx/
