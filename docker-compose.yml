@@ -1,26 +1,12 @@
 version: '3.2'
 services:
-  postgres:
-    image: postgres:9.4
-  redis:
-    image: redis
-  app:
-    image: app
-    environment:
-      - SECRET_KEY_BASE
-      - RAILS_ENV
-      - RACK_ENV
-    working_dir: /home/app/
+  nginx:
+    image: nginx
+    container_name: nginx
     volumes:
-      - .:/home/app/
-    depends_on:
-      - postgres
-      - redis
-  web:
-    image: web
+      - nginx:/etc/nginx
+  docker-gen:
+    image: docker-gen
+    container_name: docker-gen
     volumes:
-      - .:/home/app/
-    depends_on:
-      - app
-    ports:
-      - 80
+      - nginx:/root/nginx/

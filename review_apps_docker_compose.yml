@@ -1,0 +1,28 @@
+version: '3.2'
+services:
+  postgres:
+    image: postgres:9.4
+  redis:
+    image: redis
+  app:
+    image: app
+    environment:
+      - SECRET_KEY_BASE
+      - RAILS_ENV
+      - RACK_ENV
+    working_dir: /home/app/
+    volumes:
+      - .:/home/app/
+    depends_on:
+      - postgres
+      - redis
+  web:
+    image: web
+    environment:
+      - VIRTUAL_HOST
+    volumes:
+      - .:/home/app/
+    depends_on:
+      - app
+    ports:
+      - 80
